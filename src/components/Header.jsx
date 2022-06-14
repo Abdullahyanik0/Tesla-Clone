@@ -8,10 +8,21 @@ export default function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const menuItem = [{ item: "Shop" }, { item: "Account" }, { item: "Menu" }];
 
+  const multiple = () => {
+    setIsNavOpen((prev) => !prev);
+    document.getElementById("blurtheme").classList.add("blur-sm");
+    document.getElementById("blurthemes").classList.add("blur-sm");
+  };
+  const multipledelete = () => {
+    setIsNavOpen((prev) => !prev);
+    document.getElementById("blurtheme").classList.remove("blur-sm");
+    document.getElementById("blurthemes").classList.remove("blur-sm");
+  };
+
   return (
-    <div className="absolute font-family  font-semibold tracking-wider w-full h-full">
+    <div className="header absolute font-family  font-semibold tracking-wider w-full h-full">
       <div className="flex items-center   justify-between  h-14 fixed w-full z-10 px-6">
-        <div className="pl-6">
+        <div id="blurtheme" className="pl-6 ">
           <a href="/">
             <Icon name="logo" size={120} />
           </a>
@@ -19,19 +30,18 @@ export default function Header() {
         <nav className="">
           <section className="   lg:hidden">
             <div
-              className=" xl:absolute px-8 sm:px-4 right-0 space-y-2"
-              onClick={() => setIsNavOpen((prev) => !prev)}
+              className=" xl:absolute px-8 sm:px-4 sm:pr-10 right-0 space-y-2"
+              onClick={() => multiple()}
             >
               <span className="block h-0.5 w-8 bg-black"></span>
               <span className="block h-0.5 w-8 bg-black"></span>
               <span className="block h-0.5 w-8 bg-black"></span>
             </div>
 
-            <div  className={isNavOpen ? "showMenuNav" : "hideMenuNav"}>
-              {" "}
+            <div className={isNavOpen ? "showMenuNav" : "hideMenuNav"}>
               <div
-                className=" absolute right-7 -top-6 h-20"
-                onClick={() => setIsNavOpen(false)}
+                className=" button flex items-center justify-end   h-20"
+                onClick={() => multipledelete()}
               >
                 <svg
                   className="h-6 w-6 text-black"
@@ -46,7 +56,7 @@ export default function Header() {
                   <line x1="6" y1="6" x2="18" y2="18" />
                 </svg>
               </div>
-              <ul className=" flex flex-col mt-6   ">
+              <ul className=" flex flex-col    ">
                 {cars.map((car) => (
                   <li>
                     <a
@@ -62,16 +72,16 @@ export default function Header() {
           </section>
           <div className="ml-24">
             <ul className=" hidden space-x-4 lg:flex  ">
-            {cars.map((car) => (
-                  <li>
-                    <a
-                      className="px-2 ease-in duration-200 h-8 flex items-center rounded-xl hover:bg-gray-500 hover:bg-opacity-20"
-                      href="/models"
-                    >
-                      {car.title}
-                    </a>
-                  </li>
-                ))}
+              {cars.map((car) => (
+                <li>
+                  <a
+                    className="px-2 ease-in duration-200 h-8 flex items-center rounded-xl hover:bg-gray-500 hover:bg-opacity-20"
+                    href="/models"
+                  >
+                    {car.title}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </nav>
@@ -107,6 +117,16 @@ export default function Header() {
       padding:0 2.1rem;
       
     }
+    @media only screen and (max-width: 600px) {
+      .showMenuNav {
+        width: 338px;
+        padding: 0 2rem;
+       
+
+      }
+      .button{
+        padding: 0;
+      }
   `}</style>
       </div>
     </div>

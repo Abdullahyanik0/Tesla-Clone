@@ -10,22 +10,29 @@ import modelYimage from "../image/ModelY.jpg";
 import SolarRoofimage from "../image/SolarRoof.jpg";
 import SolarPanelsimage from "../image/SolarPanels.jpg";
 import { Mousewheel, Pagination } from "swiper";
+import "swiper/css/effect-fade";
+import { EffectFade } from "swiper";
 
 const Main = () => {
   return (
     <>
-      <div className="main h-full w-full font-family ">
+      <div
+        id="blurthemes"
+        className=" main h-full box-content w-full font-family "
+      >
         <div className="main-content w-full h-full ">
           <Swiper
+            setTransition={1000}
+            effect={"fade"}
             direction={"vertical"}
             slidesPerView={1}
             spaceBetween={30}
             mousewheel={true}
-            modules={[Mousewheel, Pagination]}
+            modules={[Mousewheel, Pagination,EffectFade]}
             className="mySwiper max-h-screen "
           >
             <SwiperSlide>
-              <MainContent id={1} image={modelXimage} title="Model X" />
+              <MainContent image={modelXimage} title="Model X" />
             </SwiperSlide>
             <SwiperSlide>
               <MainContent image={model3image} title="Model 3" />

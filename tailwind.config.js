@@ -11,15 +11,17 @@ module.exports = {
       },
       screens: {
         "2xl": { min: "1023px" },
+        "3xl": { min: "640px" },
 
         xl: { max: "1279px" },
 
         lg: { min: "1153px" },
 
-        md: { max: "1023" },
+        md: { max: "1023px" },
 
-        sm: { max: "639px" },
+        sm: { max: "640px" },
         as: { min: "1279px" },
+        aa: { max: "400px" },
       },
     },
   },

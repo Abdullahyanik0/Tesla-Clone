@@ -14,11 +14,11 @@ const footerItem = [
 const Footer = () => {
   return (
     <>
-      <div className="footer flex gap-x-4 h-16 justify-center text-sm items-center">
+      <div className="footer sm:hidden  sm:grid-cols-4 sm:px-2 sm:text-[11px]  flex gap-x-4 h-16 justify-center text-sm items-center">
         {footerItem.map((item) => (
-          <ul >
+          <ul>
             <li>
-              <a  href="/">{item.item}</a>
+              <a href="/">{item.item}</a>
             </li>
           </ul>
         ))}
